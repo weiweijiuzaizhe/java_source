@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>java_learning_output</name>
+			<type>2</type>
+			<location>D:/eclipse_output/java_learning_output</location>
+		</link>
+	</linkedResources>
 </projectDescription>

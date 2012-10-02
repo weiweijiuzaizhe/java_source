@@ -18,5 +18,5 @@
 	<classpathentry kind="lib" path="D:/我的文档/GitHub/common_source/outter_jar/mediavpigudfs.jar"/>
 	<classpathentry kind="lib" path="D:/我的文档/GitHub/common_source/outter_jar/json-simple-1.1.jar"/>
 	<classpathentry kind="lib" path="D:/我的文档/GitHub/common_source/outter_jar/slf4j-api-1.4.3.jar"/>
-	<classpathentry kind="output" path=""/>
+	<classpathentry kind="output" path="java_learning_output"/>
 </classpath>
