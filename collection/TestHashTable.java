@@ -1,7 +1,7 @@
 package collection;
 
 import java.util.Hashtable;
-//À´×Ôhttp://topic.csdn.net/t/20011217/18/426674.html
+//æ¥è‡ªhttp://topic.csdn.net/t/20011217/18/426674.html
 //Hashtable
 public   class     TestHashTable{
 		 public   static   void   main(String[]   args){

@@ -53,7 +53,7 @@ public class Test {
 	    	System.out.print(v.get(i) + ", ");
 	    }
 	    
-	    // Ò»¸öÀà¼¯²»ÄÜÖ±½Ó´æ´¢»ù±¾Êı¾İÀàĞÍint£¬char£¬doubleµÈµÄÖµ
+	    // ä¸€ä¸ªç±»é›†ä¸èƒ½ç›´æ¥å­˜å‚¨åŸºæœ¬æ•°æ®ç±»å‹intï¼Œcharï¼Œdoubleç­‰çš„å€¼
 //	    ArrayList <int> mylist1 = new ArrayList <int>(); 
 	    ArrayList <int[]> mylist2 = new ArrayList <int[]>();
 	    ArrayList <String> mylist3 = new ArrayList <String>(); 
@@ -117,17 +117,17 @@ public class Test {
 	
 	protected class Test1 extends Test{
 		public Test1(int count) {
-			setInt(0); // ·Ç¾²Ì¬ÄÚ²¿Àà¿ÉÒÔ·ÃÎÊÍâ²¿ÀàµÄ¾²Ì¬ºÍ·Ç¾²Ì¬³ÉÔ±º¯Êı
+			setInt(0); // éé™æ€å†…éƒ¨ç±»å¯ä»¥è®¿é—®å¤–éƒ¨ç±»çš„é™æ€å’Œéé™æ€æˆå‘˜å‡½æ•°
 			toString();
-			System.out.println("mCount = " + mCount); // ·Ç¾²Ì¬ÄÚ²¿ÀàÖ»ÄÜ·ÃÎÊÍâ²¿ÀàµÄ·Ç¾²Ì¬³ÉÔ±±äÁ¿
+			System.out.println("mCount = " + mCount); // éé™æ€å†…éƒ¨ç±»åªèƒ½è®¿é—®å¤–éƒ¨ç±»çš„éé™æ€æˆå‘˜å˜é‡
 		}
 	}
 	
 	static class Test2 extends Test{
 		public Test2(int count) {
-			setInt(0); // ¾²Ì¬ÄÚ²¿Àà¿ÉÒÔ·ÃÎÊÍâ²¿ÀàµÄ¾²Ì¬ºÍ·Ç¾²Ì¬³ÉÔ±º¯Êı
+			setInt(0); // é™æ€å†…éƒ¨ç±»å¯ä»¥è®¿é—®å¤–éƒ¨ç±»çš„é™æ€å’Œéé™æ€æˆå‘˜å‡½æ•°
 			toString();
-			System.out.println("m_iNum = " + m_iNum); // ¾²Ì¬ÄÚ²¿ÀàÖ»ÄÜ·ÃÎÊÍâ²¿ÀàµÄ¾²Ì¬³ÉÔ±±äÁ¿
+			System.out.println("m_iNum = " + m_iNum); // é™æ€å†…éƒ¨ç±»åªèƒ½è®¿é—®å¤–éƒ¨ç±»çš„é™æ€æˆå‘˜å˜é‡
 		}
 	}
 	

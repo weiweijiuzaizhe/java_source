@@ -1,6 +1,6 @@
 package collection;
 
-//À´×ÔÓÚhttp://blogold.chinaunix.net/u1/52135/showart_409444.html
+//æ¥è‡ªäºhttp://blogold.chinaunix.net/u1/52135/showart_409444.html
 
 import java.util.Iterator;
 import java.util.Map;
@@ -8,13 +8,13 @@ import java.util.TreeMap;
  
  public class TestTreeMap {
 	 public static void main(String[] args){
-		 //½«Êı¾İ·ÅÈëHashMapÖĞ
+		 //å°†æ•°æ®æ”¾å…¥HashMapä¸­
 		 Map<String, String> tree_map=new TreeMap<String,String>();
 		 tree_map.put("a", "aaa");
 		 tree_map.put("b", "bbb");
 		 tree_map.put("c", "ccc");
 		 tree_map.put("d", "ddd");
-		 //µÃµ½Ò»¸öµü´úÆ÷
+		 //å¾—åˆ°ä¸€ä¸ªè¿­ä»£å™¨
 		 Iterator<String> iter=tree_map.keySet().iterator();
 		 while(iter.hasNext()){
 			 String key=iter.next();

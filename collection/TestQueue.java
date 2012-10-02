@@ -3,31 +3,31 @@ package collection;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
-//À´×Ôhttp://www.blogjava.net/dreamstone/archive/2007/07/28/133003.html
+//æ¥è‡ªhttp://www.blogjava.net/dreamstone/archive/2007/07/28/133003.html
 
 public class TestQueue {
     public static void main(String[] args) {
-        //¶ÓÁĞÊÇÏÈ½øÏÈ³ö
+        //é˜Ÿåˆ—æ˜¯å…ˆè¿›å…ˆå‡º
         Queue<String> q = new LinkedList<String>();
-        //ÕâÀïofferºÍaddÀàËÆ
+        //è¿™é‡Œofferå’Œaddç±»ä¼¼
         q.offer("a");
         q.offer("b");
         q.offer("c");
         System.out.println(q);
-        //¶ÓÁĞÍ·²¿µ¯³ö
+        //é˜Ÿåˆ—å¤´éƒ¨å¼¹å‡º
         q.poll();
         System.out.println(q);
-        //Õ»ÄãÊÇºó½øÏÈ³ö
+        //æ ˆä½ æ˜¯åè¿›å…ˆå‡º
         Stack<String> s = new Stack<String>();
         s.add("a");
         s.add("b");
-        //ÕâÀïpushµÈÍ¬add
+        //è¿™é‡Œpushç­‰åŒadd
         s.push("c");
         System.out.println(s);
-        //Õ»¶¥µ¯³ö
+        //æ ˆé¡¶å¼¹å‡º
         s.pop();
         System.out.println(s);
-        //Ö»ÊÇ¿´Ò»ÏÂÕ»¶¥µÄÖµ£¬²¢²»ÒÆ³ı
+        //åªæ˜¯çœ‹ä¸€ä¸‹æ ˆé¡¶çš„å€¼ï¼Œå¹¶ä¸ç§»é™¤
         s.peek();
         System.out.println(s);
     }

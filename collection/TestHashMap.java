@@ -1,6 +1,6 @@
 package collection;
 
-//À´×ÔÓÚhttp://blogold.chinaunix.net/u1/52135/showart_409444.html
+//æ¥è‡ªäºhttp://blogold.chinaunix.net/u1/52135/showart_409444.html
 
  import java.util.HashMap;
  import java.util.Iterator;
@@ -9,13 +9,13 @@ package collection;
  
  public class TestHashMap {
 	 public static void main(String[] args) {
-		 //½«Êı¾İ·ÅÈëHashMapÖĞ
+		 //å°†æ•°æ®æ”¾å…¥HashMapä¸­
 		 Map<String, String> map=new HashMap<String,String>();
 		 map.put("a", "aaa");
 		 map.put("b", "bbb");
 		 map.put("c", "ccc");
 		 map.put("d", "ddd");
-		 //µÃµ½Ò»¸öµü´úÆ÷,¾ÈÃü°¡£¬ÎªºÎ
+		 //å¾—åˆ°ä¸€ä¸ªè¿­ä»£å™¨,æ•‘å‘½å•Šï¼Œä¸ºä½•
 		 Iterator<String> iter=map.keySet().iterator();
 		 while(iter.hasNext()){
 			 String key=iter.next();
