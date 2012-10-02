@@ -3,21 +3,21 @@ package pca;
 import Jama.Matrix;
 
 /*
- * Description:ÎªÃÖ²¹jamaµÄMaxtrixÀàÖĞÈ±ÉÙµÄº¯Êı£¬±àĞ´Õâ¸ö¹¤¾ßÀà£¬º¯Êı´ó¶àÊÇ¾²Ì¬µÄ
+ * Description:ä¸ºå¼¥è¡¥jamaçš„Maxtrixç±»ä¸­ç¼ºå°‘çš„å‡½æ•°ï¼Œç¼–å†™è¿™ä¸ªå·¥å…·ç±»ï¼Œå‡½æ•°å¤§å¤šæ˜¯é™æ€çš„
  */
 public class MatrixTool {
 	
 	/*
-	 * @param matrix_input´«µÄ¾ØÕó
-	 * @return matrix_input¶ÔÓ¦µÄĞ­·½²î¾ØÕó
+	 * @param matrix_inputä¼ çš„çŸ©é˜µ
+	 * @return matrix_inputå¯¹åº”çš„åæ–¹å·®çŸ©é˜µ
 	 * @author wuwei
 	 */
 	public static Matrix getCovMatrix(Matrix matrix_input) {
 		
 		double row_cnt = matrix_input.getRowDimension();
 		
-		Matrix center_matrix = MatrixTool.getCenterMatrix(matrix_input);//µÃµ½ÖĞĞÄ¾ØÕó
-		Matrix transposed_matrix = MatrixTool.getTransposeMatrix(center_matrix);   //µÃµ½ÖĞĞÄ¾ØÕóµÄ×ªÖÃ¾ØÕó
+		Matrix center_matrix = MatrixTool.getCenterMatrix(matrix_input);//å¾—åˆ°ä¸­å¿ƒçŸ©é˜µ
+		Matrix transposed_matrix = MatrixTool.getTransposeMatrix(center_matrix);   //å¾—åˆ°ä¸­å¿ƒçŸ©é˜µçš„è½¬ç½®çŸ©é˜µ
 		Matrix matrix_tmp = transposed_matrix.times(center_matrix);
 		
 		double factor = 1 / (row_cnt - 1);
@@ -30,13 +30,13 @@ public class MatrixTool {
 	
 	
 	/*
-	 * @param matrix_input´«µÄ¾ØÕó
-	 * @return matrix_input¶ÔÓ¦µÄ×ªÖÃºóµÄ¾ØÕó
+	 * @param matrix_inputä¼ çš„çŸ©é˜µ
+	 * @return matrix_inputå¯¹åº”çš„è½¬ç½®åçš„çŸ©é˜µ
 	 */
 	public static Matrix getTransposeMatrix(Matrix matrix_input){
 		
-		int row_cnt = matrix_input.getRowDimension();// ĞĞÊı
-		int column_cnt = matrix_input.getColumnDimension();// ÁĞÊı
+		int row_cnt = matrix_input.getRowDimension();// è¡Œæ•°
+		int column_cnt = matrix_input.getColumnDimension();// åˆ—æ•°
 		double[][] to_return_array = new double[column_cnt][row_cnt];
 		for(int i = 0; i < row_cnt; i++){
 			for(int j = 0;j < column_cnt; j++){
@@ -49,15 +49,15 @@ public class MatrixTool {
 	
 	
 	/*
-	 * @param column_offsetÒªµÃµ½µÄÊÇµÚcolumn_offsetÁĞµÄÊı¾İ,column_offset´ÓÁã¿ªÊ¼Ëã
-	 * @param matrix_input´«µÄ¾ØÕó
-	 * @return Ò»¸ö1Î¬Êı×é£¬¶ÔÓ¦µÄÊÇmatrix_inputµÄµÚcolumn_offsetÁĞµÄÄÚÈİ
+	 * @param column_offsetè¦å¾—åˆ°çš„æ˜¯ç¬¬column_offsetåˆ—çš„æ•°æ®,column_offsetä»é›¶å¼€å§‹ç®—
+	 * @param matrix_inputä¼ çš„çŸ©é˜µ
+	 * @return ä¸€ä¸ª1ç»´æ•°ç»„ï¼Œå¯¹åº”çš„æ˜¯matrix_inputçš„ç¬¬column_offsetåˆ—çš„å†…å®¹
 	 * 
 	 */
 	public static double[] getColumn(int column_offset, Matrix matrix_input) {
 
-		int row_cnt = matrix_input.getRowDimension();// ĞĞÊı
-		double[] column_array = new double[row_cnt];// ÉêÇë³ö·µ»ØµÄÊı×éµÄ¿Õ¼ä
+		int row_cnt = matrix_input.getRowDimension();// è¡Œæ•°
+		double[] column_array = new double[row_cnt];// ç”³è¯·å‡ºè¿”å›çš„æ•°ç»„çš„ç©ºé—´
 		for (int i = 0; i < row_cnt; i++) {
 			column_array[i] = matrix_input.get(i, column_offset);
 		}
@@ -67,18 +67,18 @@ public class MatrixTool {
 	
 	
 	/*
-	 * Description:½«Êı×ématrix_inputµÚcolumn_offsetÁĞµÄÄÚÈİ¼õÈ¥minus_value,Ö´ĞĞºÃÖ®ºó£¬matrix_inputµÄÖµ·¢ÉúÁË±ä»¯£¬Õâ´«µÄÊÇÓ¦ÓÃ
-	 * @param column_offset ±»¼õÈ¥µÄÊÇmatrix_inputµÄµÚcolumn_offsetÁĞ
-	 * @param matrix_input ÊäÈëµÄµÈ´ı´¦ÀíµÄMatrix
-	 * @param minus_value Êı×ématrix_inputµÚcolumn_offsetÒª¼õÈ¥minus_value
-	 * @return Á÷Ë®ÏßÄ£Ê½£¬Ã»ÓĞ·µ»ØÖµ
+	 * Description:å°†æ•°ç»„matrix_inputç¬¬column_offsetåˆ—çš„å†…å®¹å‡å»minus_value,æ‰§è¡Œå¥½ä¹‹åï¼Œmatrix_inputçš„å€¼å‘ç”Ÿäº†å˜åŒ–ï¼Œè¿™ä¼ çš„æ˜¯åº”ç”¨
+	 * @param column_offset è¢«å‡å»çš„æ˜¯matrix_inputçš„ç¬¬column_offsetåˆ—
+	 * @param matrix_input è¾“å…¥çš„ç­‰å¾…å¤„ç†çš„Matrix
+	 * @param minus_value æ•°ç»„matrix_inputç¬¬column_offsetè¦å‡å»minus_value
+	 * @return æµæ°´çº¿æ¨¡å¼ï¼Œæ²¡æœ‰è¿”å›å€¼
 	 * 
 	 */
 	public static void minusColumn(int column_offset, Matrix matrix_input,double minus_value) {
 
-		int row_cnt = matrix_input.getRowDimension();// ĞĞÊı
+		int row_cnt = matrix_input.getRowDimension();// è¡Œæ•°
 
-		double[][] martix_array = matrix_input.getArray();// µÃµ½ÄÚ²¿arrayµÄÒıÓÃ
+		double[][] martix_array = matrix_input.getArray();// å¾—åˆ°å†…éƒ¨arrayçš„å¼•ç”¨
 
 		for (int i = 0; i < row_cnt; i++) {
 			martix_array[i][column_offset] = martix_array[i][column_offset]
@@ -89,17 +89,17 @@ public class MatrixTool {
 	
 	
 	/*
-	 * Description:½«Êı×ématrix_inputµÚcolumn_offsetÁĞµÄÄÚÈİ¼õÈ¥minus_value,Ö´ĞĞºÃÖ®ºó£¬matrix_inputµÄÖµ²»·¢Éú±ä»¯
-	 * @param column_offset ±»¼õÈ¥µÄÊÇmatrix_inputµÄµÚcolumn_offsetÁĞ
-	 * @param matrix_input ÊäÈëµÄµÈ´ı´¦ÀíµÄMatrix
-	 * @param minus_value Êı×ématrix_inputµÚcolumn_offsetÒª¼õÈ¥minus_value
-	 * @return ´¦ÀíºÃÖ®ºóĞÂÉú³ÉµÄMatrix
+	 * Description:å°†æ•°ç»„matrix_inputç¬¬column_offsetåˆ—çš„å†…å®¹å‡å»minus_value,æ‰§è¡Œå¥½ä¹‹åï¼Œmatrix_inputçš„å€¼ä¸å‘ç”Ÿå˜åŒ–
+	 * @param column_offset è¢«å‡å»çš„æ˜¯matrix_inputçš„ç¬¬column_offsetåˆ—
+	 * @param matrix_input è¾“å…¥çš„ç­‰å¾…å¤„ç†çš„Matrix
+	 * @param minus_value æ•°ç»„matrix_inputç¬¬column_offsetè¦å‡å»minus_value
+	 * @return å¤„ç†å¥½ä¹‹åæ–°ç”Ÿæˆçš„Matrix
 	 * 
 	 */
 	public static Matrix getminusedColumn(int column_offset, Matrix matrix_input,
 			double minus_value) {
 
-		int row_cnt = matrix_input.getRowDimension();// ĞĞÊı
+		int row_cnt = matrix_input.getRowDimension();// è¡Œæ•°
 
 		double[][] martix_array = matrix_input.getArrayCopy();
 
@@ -114,9 +114,9 @@ public class MatrixTool {
 	
 	
 	/*
-	 * Description:°´ĞĞ´ò³öÒ»¸ö¶şÎ¬doubleÊı×éµÄÖµ
-	 * @param v_array ÒªÏÔÊ¾µÄ¶şÎ¬Êı×é
-	 * @return Á÷Ë®ÏßÄ£Ê½£¬Ã»ÓĞ·µ»ØÖµ
+	 * Description:æŒ‰è¡Œæ‰“å‡ºä¸€ä¸ªäºŒç»´doubleæ•°ç»„çš„å€¼
+	 * @param v_array è¦æ˜¾ç¤ºçš„äºŒç»´æ•°ç»„
+	 * @return æµæ°´çº¿æ¨¡å¼ï¼Œæ²¡æœ‰è¿”å›å€¼
 	 */
 	public static void showTwoDimensionArray(double[][] v_array) {
 		for (int i = 0; i < v_array.length; i++) {
@@ -132,9 +132,9 @@ public class MatrixTool {
 	
 	
 	/*
-	 * Description:µÃµ½ÖĞĞÄ¾ØÕó£¨¼´Ã¿¸öÎ¬¶È¼õÈ¥Õâ¸öÎ¬¶ÈµÄ¾ùÖµ£©
-	 * @param matrix_input ÊäÈëµÄµÈ´ı´¦ÀíµÄMatrix
-	 * @return matrix_input¶ÔÓ¦µÄÖĞĞÄ¾ØÕó
+	 * Description:å¾—åˆ°ä¸­å¿ƒçŸ©é˜µï¼ˆå³æ¯ä¸ªç»´åº¦å‡å»è¿™ä¸ªç»´åº¦çš„å‡å€¼ï¼‰
+	 * @param matrix_input è¾“å…¥çš„ç­‰å¾…å¤„ç†çš„Matrix
+	 * @return matrix_inputå¯¹åº”çš„ä¸­å¿ƒçŸ©é˜µ
 	 * 
 	 */
 	
@@ -142,12 +142,12 @@ public class MatrixTool {
 		
 		Matrix matrix_to_return = new Matrix(matrix_input.getArrayCopy());
 		
-		int colum_cnt = matrix_input.getColumnDimension();//ÁĞÊı
+		int colum_cnt = matrix_input.getColumnDimension();//åˆ—æ•°
 		
-	    //°´ÁĞ±éÀúÒ»¸öÊı×é
+	    //æŒ‰åˆ—éå†ä¸€ä¸ªæ•°ç»„
 		for(int column_offset = 0;column_offset < colum_cnt;column_offset++ ){
 			double[] current_column_array = MatrixTool.getColumn(column_offset, matrix_input);
-			double avg_value = MatrixTool.getArrayAvg(current_column_array);//ÕâÒ»ÁĞµÄÆ½¾ùÖµ
+			double avg_value = MatrixTool.getArrayAvg(current_column_array);//è¿™ä¸€åˆ—çš„å¹³å‡å€¼
 			MatrixTool.minusColumn(column_offset, matrix_to_return, avg_value);
 		}
 		
@@ -159,9 +159,9 @@ public class MatrixTool {
 	
 	
 	/*
-	 * Description:µÃµ½Ò»¸ödoubleÊı×éµÄ¾ùÖµ
-	 * @param array_input,´«ÈëµÄÒ»Î¬µÄdoubleÊı×é
-	 * @return array_inputÖĞÄÚÈİµÄÆ½¾ùÖµ
+	 * Description:å¾—åˆ°ä¸€ä¸ªdoubleæ•°ç»„çš„å‡å€¼
+	 * @param array_input,ä¼ å…¥çš„ä¸€ç»´çš„doubleæ•°ç»„
+	 * @return array_inputä¸­å†…å®¹çš„å¹³å‡å€¼
 	 * 
 	 */
 	public static double getArrayAvg(double[] array_input) {

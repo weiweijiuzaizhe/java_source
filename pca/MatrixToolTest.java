@@ -82,11 +82,11 @@ public class MatrixToolTest {
 		MatrixTool.showTwoDimensionArray(matrix_to_test.getArray());
 	}
 	/*
-	 * description:ÔÚÇóĞ­·½²î¾ØÕóµÄ»ù´¡ÉÏ²âÊÔ¾ØÕóµÄÌØÕ÷Öµ·Ö½âµÄÑİÊ¾
+	 * description:åœ¨æ±‚åæ–¹å·®çŸ©é˜µçš„åŸºç¡€ä¸Šæµ‹è¯•çŸ©é˜µçš„ç‰¹å¾å€¼åˆ†è§£çš„æ¼”ç¤º
 	 */
 	public void getEigTest(){
 
-		//´Óhttp://blog.csdn.net/ybdesire/article/details/6270328µÃµ½µÄÀı×Ó
+		//ä»http://blog.csdn.net/ybdesire/article/details/6270328å¾—åˆ°çš„ä¾‹å­
 		//double[][] array_before = { { 1,2 }, { 3,6}, {4,2 },{5,2} };
 
 		double[][] array_before = { { 1,2,100,400 }, { 3,6,200,500}, {4,2,300,600},{5,2,400,700} };
@@ -111,12 +111,12 @@ public class MatrixToolTest {
 		
 		EigenvalueDecomposition matrix_res = cov_matrix.eig();
 		System.out
-		.printf("################    ÓÉÌØÕ÷Öµ×é³ÉµÄ¶Ô½Ç¾ØÕó  #####################\n");
+		.printf("################    ç”±ç‰¹å¾å€¼ç»„æˆçš„å¯¹è§’çŸ©é˜µ  #####################\n");
 		
 		MatrixTool.showTwoDimensionArray(matrix_res.getD().getArray());
 		
 		System.out
-		.printf("################    Ã¿Ò»ÁĞ¶ÔÓ¦µÄÊÇÒ»¸öÌØÕ÷ÏòÁ¿  #####################\n");
+		.printf("################    æ¯ä¸€åˆ—å¯¹åº”çš„æ˜¯ä¸€ä¸ªç‰¹å¾å‘é‡  #####################\n");
 		MatrixTool.showTwoDimensionArray(matrix_res.getV().getArray());
 		
 	}
@@ -134,7 +134,7 @@ public class MatrixToolTest {
 		
 		
 		
-		Matrix matrix_inversed = matrix_to_test.inverse();//µÃµ½µÄÊÇÄæ¾ØÕó
+		Matrix matrix_inversed = matrix_to_test.inverse();//å¾—åˆ°çš„æ˜¯é€†çŸ©é˜µ
 		
 		System.out
 		.printf("###############  inversed_matrix  ######################\n");
@@ -171,7 +171,7 @@ public class MatrixToolTest {
 	}
 	
 	public void getCovMatrixTest(){
-		//´Óhttp://blog.csdn.net/ybdesire/article/details/6270328µÃµ½µÄÀı×Ó
+		//ä»http://blog.csdn.net/ybdesire/article/details/6270328å¾—åˆ°çš„ä¾‹å­
 		double[][] array_before = { { 1,2 }, { 3,6}, {4,2 },{5,2} };
 
 		System.out

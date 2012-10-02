@@ -6,7 +6,7 @@ public class PcaTest {
 	public static void main(String[] args) {
 		double[][] array = { { -1, 1, 0 }, { -4, 3, 0 }, { 1, 0, 2 } };
 		Matrix matrix = new Matrix(array);
-		double[] columnPackedArray = matrix.getColumnPackedCopy();//Ò»ÁĞÒ»ÁĞµØÅÅÔÚÒ»Æğ
+		double[] columnPackedArray = matrix.getColumnPackedCopy();//ä¸€åˆ—ä¸€åˆ—åœ°æ’åœ¨ä¸€èµ·
 		PcaTest.showArray(columnPackedArray);
 	}
 	

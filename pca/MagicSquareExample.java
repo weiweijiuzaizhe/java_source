@@ -3,7 +3,7 @@ import Jama.*;
 import java.util.Date;
 
 /** Example of use of Matrix Class, featuring magic squares. **/
-//Õâ¸öÀı×ÓÊÇjamaµÄ¹ÙÍøÉÏÌá¹©µÄ
+//è¿™ä¸ªä¾‹å­æ˜¯jamaçš„å®˜ç½‘ä¸Šæä¾›çš„
 public class MagicSquareExample {
 
    /** Generate magic square test matrix. **/
@@ -103,7 +103,7 @@ public class MagicSquareExample {
     |
     |   n       = order of magic square.
     |   trace   = diagonal sum, should be the magic sum, (n^3 + n)/2.
-    |   max_eig = maximum eigenvalue of (A + A')/2, should equal trace.//×î´óÌØÕ÷Öµ
+    |   max_eig = maximum eigenvalue of (A + A')/2, should equal trace.//æœ€å¤§ç‰¹å¾å€¼
     |   rank    = linear algebraic rank,
     |             should equal n if n is odd, be less than n if n is even.
     |   cond    = L_2 condition number, ratio of singular values.

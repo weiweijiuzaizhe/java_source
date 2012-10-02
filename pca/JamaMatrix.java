@@ -1,28 +1,28 @@
 package pca;
 
 import Jama.Matrix;
-//À´×ÔÓÚhttp://zhidao.baidu.com/question/324732745.html
+//æ¥è‡ªäºhttp://zhidao.baidu.com/question/324732745.html
 public class JamaMatrix {
 	public static void main(String[] args) {
 		double[][] array = { { -1, 1, 0 }, { -4, 3, 0 }, { 1, 0, 2 } };
-		// ¶¨ÒåÒ»¸ö¾ØÕó
+		// å®šä¹‰ä¸€ä¸ªçŸ©é˜µ
 		Matrix A = new Matrix(array);
 
-		// ÓÉÌØÕ÷Öµ×é³ÉµÄ¶Ô½Ç¾ØÕó
+		// ç”±ç‰¹å¾å€¼ç»„æˆçš„å¯¹è§’çŸ©é˜µ
 		/*
-		 * ¶Ô½ÇÏßÌØÕ÷Öµ¾ØÕó
+		 * å¯¹è§’çº¿ç‰¹å¾å€¼çŸ©é˜µ
 		 */
-		A.eig().getD().print(4, 2);//4ÁĞ£¬¾«È·µ½Ğ¡Êıµãºó2Î»
-		// Ã¿Ò»ÁĞ¶ÔÓ¦µÄÊÇÒ»¸öÌØÕ÷ÏòÁ¿
+		A.eig().getD().print(4, 2);//4åˆ—ï¼Œç²¾ç¡®åˆ°å°æ•°ç‚¹å2ä½
+		// æ¯ä¸€åˆ—å¯¹åº”çš„æ˜¯ä¸€ä¸ªç‰¹å¾å‘é‡
 		
 		/*
-		 * µÃµ½ÌØÕ÷ÏòÁ¿¾ØÕó
+		 * å¾—åˆ°ç‰¹å¾å‘é‡çŸ©é˜µ
 		 */
 		A.eig().getV().print(4, 2);
 
 		double[][] arrayb = { { 1, -2, 2 }, { -2, -2, 4 }, { 2, 4, -2 } };
-		Matrix B = new Matrix(arrayb);//¸ù¾İÊı×éÉú³É¾ØÕó
-		B.eig().getD().print(4, 2);//Êä³öÌØÕ÷Öµ£¨·ÅÔÚ¶Ô½ÇÕóÖĞ£¬¶Ô½ÇÏßÉÏ£©
-		B.eig().getV().print(4, 2);//Êä³öÌØÕ÷ÏòÁ¿
+		Matrix B = new Matrix(arrayb);//æ ¹æ®æ•°ç»„ç”ŸæˆçŸ©é˜µ
+		B.eig().getD().print(4, 2);//è¾“å‡ºç‰¹å¾å€¼ï¼ˆæ”¾åœ¨å¯¹è§’é˜µä¸­ï¼Œå¯¹è§’çº¿ä¸Šï¼‰
+		B.eig().getV().print(4, 2);//è¾“å‡ºç‰¹å¾å‘é‡
 	}
 }
