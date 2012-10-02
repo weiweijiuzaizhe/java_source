@@ -9,6 +9,8 @@ public class Test {
 	private int mCount;
 	
 	public Test() {
+		
+		
 		mCount = 0;
 		m_iNum = 0;
 	}
